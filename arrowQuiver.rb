@@ -1,14 +1,22 @@
 def any_arrows(arrows)
 
+	def any_arrows(arrows)
+  if arrows.empty?   #Should handle empty quiver
+    return false
+   end
+   
 	arrows.each do |arrow|
-		if arrow[:damaged]==true
-			#puts "bad arrow"
-			false
-		else
-			#puts "good arrow"
-			true
+		if arrow[:damaged]==true  #Should handle quiver with damaged arrows
+			return false   
 		end
-	end
+   end
+    
+    arrows.each do |arrow|
+    if arrow[:damaged]!=true #Should handle quiver with undamaged arrows
+      return true
+    end
+   end
+    
 end
 
 any_arrows([{range: 5}, {range: 10, damaged: true}, {range: true}])
